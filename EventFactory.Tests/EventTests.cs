@@ -32,4 +32,15 @@ public class Tests
             var eventObject = new EventFactory().GetEvent(typeof(Exception));
         });
     }
+
+    [Test]
+    public void GettingAnEventAndPopulatingCausesExpectedValues()
+    {
+        var eventObject = new EventFactory().GetEvent(typeof(BirthdayParty));
+        eventObject.DatabaseId = 3;
+        eventObject.Populate();
+        var result = eventObject.RunEvent();
+        Assert.IsNotNull(eventObject);
+        Assert.AreEqual("Happy fifteenth birthday to you Thomas3!", result);
+    }
 }
