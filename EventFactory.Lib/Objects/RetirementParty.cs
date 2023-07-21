@@ -9,8 +9,10 @@ public class RetirementParty : SharedEventProperties, IEventObject
         return $"Have a happy retirement{Name}!";
     }
 
-    public void Populate()
+    public void Populate(long id)
     {
+        this.DatabaseId = id;
+        
         // we can assume some database settings or changes may be performed here,
         // but for now we are just setting an internal class value
         Name = $" Floyd{DatabaseId}";

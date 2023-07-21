@@ -37,8 +37,7 @@ public class Tests
     public void GettingAnEventAndPopulatingCausesExpectedValues()
     {
         var eventObject = new EventFactory().GetEvent(typeof(BirthdayParty));
-        eventObject.DatabaseId = 3;
-        eventObject.Populate();
+        eventObject.Populate(3);
         var result = eventObject.RunEvent();
         Assert.IsNotNull(eventObject);
         Assert.AreEqual("Happy fifteenth birthday to you Thomas3!", result);
